@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="book" extends="json-default">
+		<action name="*_book" class="com.etoak.books.action.BookAction"
+		method="{1}">
+
+			<result name="addca_suc">addca.jsp</result>
+			<result name="queryca_suc" type="json">
+				<param name="root">cas</param>
+			</result>
+			<result name="addbook_suc">addbook.jsp</result>
+			<result name="querySome_suc" type="json">
+				<param name="root">page</param>
+			</result>
+			<result name="update_suc">booklist.jsp</result>
+			<allowed-methods>addca,queryAllCas,addbook,querySome,updateBook</allowed-methods>
+		</action>
+	</package>
+</struts>

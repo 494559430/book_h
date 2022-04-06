@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etoak.books.entity.Bookpic" table="bookpic" schema="test">
+        <id name="id" column="id">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="savepath" column="savepath"/>
+        <property name="showname" column="showname"/>
+        <property name="fm" column="fm"/>
+        <many-to-one name="book" class="com.etoak.books.entity.Book">
+            <column name="bookid"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

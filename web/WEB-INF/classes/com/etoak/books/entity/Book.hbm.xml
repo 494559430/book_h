@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etoak.books.entity.Book" table="book" schema="test">
+        <id name="id" column="id">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="name" column="name"/>
+        <property name="price" column="price"/>
+        <property name="author" column="author"/>
+        <property name="publishdate" column="publishdate"/>
+        <property name="status" column="status"/>
+        <property name="del" column="del"/>
+        <many-to-one name="ca" class="com.etoak.books.entity.Category" lazy="false">
+            <column name="categoryid"></column>
+        </many-to-one>
+        <set name="bps" lazy="false">
+            <key column="bookid"></key>
+            <one-to-many class="com.etoak.books.entity.Bookpic"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
